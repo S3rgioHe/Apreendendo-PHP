@@ -52,6 +52,24 @@ function depositarNaConta(string $identifier, float $value)
 function tudoMaiuscula(string $parameter) 
 {
     global $contasCorrentes;
-    echo mb_strtoupper($contasCorrentes[$parameter] ['nome']) . PHP_EOL;
+    $contasCorrentes[$parameter] ['nome'] = mb_strtoupper($contasCorrentes[$parameter] ['nome']);
+}
+
+function removerConta($identifier) {
+    global $contasCorrentes;
+    if (strlen($identifier) != 14) {
+        foreach($contasCorrentes as $key => $contas) {
+            if(is_string($identifier)) {
+                if($contas['nome'] == $identifier) {
+                    $cpf = $key;
+                }
+            } else {
+                echo "Valor inválido";
+            }
+        }
+    } else {
+        $cpf = $identifier;
+    }
+    unset($contasCorrentes[$cpf]);
 }
 

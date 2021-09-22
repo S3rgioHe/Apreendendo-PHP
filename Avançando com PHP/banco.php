@@ -33,13 +33,15 @@ $contasCorrentes = [
     ],
 ];
 
-listarUsers();
-PHP_EOL;
 sacarDaConta('Freddie', 1000);
-PHP_EOL;
+
 depositarNaConta('183-838-298-09', 5000);
 
 tudoMaiuscula('183-838-298-09');
+
+removerConta('Doug'); //tchau Doug
+
+listarUsers();
 
 
 
