@@ -1,6 +1,6 @@
 <?php
 
-require_once 'funcoes.php';
+require_once 'functions.php';
 
 $contasCorrentes = [
     '183-838-298-09' => [
@@ -33,6 +33,8 @@ $contasCorrentes = [
     ],
 ];
 
+//sacarDaConta("Freddie", 2000) . '<br>';
+/*
 sacarDaConta('Freddie', 1000);
 
 depositarNaConta('183-838-298-09', 5000);
@@ -41,9 +43,27 @@ tudoMaiuscula('183-838-298-09');
 
 removerConta('Doug'); //tchau Doug
 
-listarUsers();
+*/
+ 
+?>
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Banco exemplar</h1>
+    </header>
+    <main>
 
-
-
-
+        <h2>lista de clientes: </h2>
+        <?php listarUsers() ?>
+    </main>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 
-$heigh = 1.75;
-$weight = 70;
+$heigh = 1.76;
+$weight = 80;
 
 $imc = number_format($weight / $heigh ** 2, 2);
 echo "Seu imc é: $imc" . PHP_EOL;
