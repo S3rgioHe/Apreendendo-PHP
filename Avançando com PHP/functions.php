@@ -1,5 +1,18 @@
 <?php
 
+function verificarIndentificador(string $parameter) {
+    global $contasCorrentes;
+    if (mb_strlen($parameter) != 14) {
+        foreach($contasCorrentes as $key => $conta) {
+            if (mb_strtolower($conta['nome'] == mb_strtolower($parameter))) {
+                return $key;
+            }
+        }
+    } else {
+        return $parameter;
+    }
+}
+
 function listarUsers() {
     global $contasCorrentes;
     foreach($contasCorrentes as $nome => $conta) {
@@ -11,19 +24,7 @@ function sacarDaConta(string $identifier, float $value)
 {    
     global $contasCorrentes;
 
-    if (strlen($identifier) != 14) {
-        foreach($contasCorrentes as $key => $contas) {
-            if(is_string($identifier)) {
-                if($contas['nome'] == $identifier) {
-                    $cpf = $key;
-                }
-            } else {
-                echo "Valor inválido";
-            }
-        }
-    } else {
-        $cpf = $identifier;
-    }
+    $cpf = verificarIndentificador($identifier);
 
     echo "OLá {$contasCorrentes[$cpf] ['nome']} sua conta tem o saldo de: {$contasCorrentes[$cpf] ['saldo']}" . PHP_EOL;
     if ($value > $contasCorrentes[$cpf] ['saldo']) {
@@ -55,21 +56,23 @@ function tudoMaiuscula(string $parameter)
     $contasCorrentes[$parameter] ['nome'] = mb_strtoupper($contasCorrentes[$parameter] ['nome']);
 }
 
-function removerConta($identifier) {
-    global $contasCorrentes;
-    if (strlen($identifier) != 14) {
-        foreach($contasCorrentes as $key => $contas) {
-            if(is_string($identifier)) {
-                if($contas['nome'] == $identifier) {
-                    $cpf = $key;
-                }
-            } else {
-                echo "Valor inválido";
-            }
-        }
-    } else {
-        $cpf = $identifier;
-    }
+function removerConta(string $identifier)
+{
+    $cpf = verificarIndentificador($identifier);
     unset($contasCorrentes[$cpf]);
+}
+
+function verificarSaldo($identifier) 
+{
+    global $contasCorrentes;
+    $cpf = verificarIndentificador($identifier);
+
+    echo "<h3>Verificando a conda de {$contasCorrentes[$cpf] ['nome']} </h3>";
+    
+    if ($contasCorrentes[$cpf] ['saldo'] > 0) {
+        echo "<h2> Há saldo disponível na conta! </h2>";
+    } else {
+        echo "<h2>Não há saldo disponível na conta</h2>";
+    }
 }
 

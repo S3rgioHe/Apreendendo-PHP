@@ -31,19 +31,11 @@ $contasCorrentes = [
         'nome' => 'Doug',
         'saldo' => 6000
     ],
+    '374-484-388-92' => [
+        'nome' => 'João',
+        'saldo' => 100
+    ]
 ];
-
-//sacarDaConta("Freddie", 2000) . '<br>';
-/*
-sacarDaConta('Freddie', 1000);
-
-depositarNaConta('183-838-298-09', 5000);
-
-tudoMaiuscula('183-838-298-09');
-
-removerConta('Doug'); //tchau Doug
-
-*/
  
 ?>
 
@@ -64,6 +56,7 @@ removerConta('Doug'); //tchau Doug
 
         <h2>lista de clientes: </h2>
         <?php listarUsers() ?>
+        <?php verificarSaldo('teste') ?>
     </main>
 </body>
 </html>
