@@ -16,7 +16,7 @@ function verificarIndentificador(string $parameter) {
 function listarUsers() {
     global $contasCorrentes;
     foreach($contasCorrentes as $nome => $conta) {
-     echo "<li> <p>Titular: {$conta['nome']}, com o saldo <strong>{$conta['saldo']}</strong></p> </li>" . PHP_EOL;
+        echo "<li> <p>Titular: {$conta['nome']}, com o saldo <strong>{$conta['saldo']}</strong></p> </li>" . PHP_EOL;
     }
 }
 
