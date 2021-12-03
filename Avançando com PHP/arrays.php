@@ -24,7 +24,7 @@ $buscarPor = $buscarPor.CASE_UPPER;
 for ($i = 0; $i < count($AlunosSesi); $i++) {
 
     if ($buscarPor == $AlunosSesi[$i] ["nome"].CASE_UPPER) {
-        echo "achamos, veja os dados aqui:" " . PHP_EOL;
+        echo "achamos, veja os dados aqui:" . PHP_EOL;
         echo $AlunosSesi[$i] ["nome"] . PHP_EOL;
         echo $AlunosSesi[$i] ["numero"] . PHP_EOL;
     }
