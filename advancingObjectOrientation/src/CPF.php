@@ -2,25 +2,25 @@
 
 class CPF
 {
-    private $numero;
+    private $number;
 
-    public function __construct(string $numero)
+    public function __construct(string $number)
     {
-        $numero = filter_var($numero, FILTER_VALIDATE_REGEXP, [
+        $number = filter_var($number, FILTER_VALIDATE_REGEXP, [
             'options' => [
                 'regexp' => '/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/'
             ]
         ]);
 
-        if ($numero === false) {
+        if ($number === false) {
             echo "Cpf inválido";
             exit();
         }
-        $this->numero = $numero;
+        $this->number = $number;
     }
 
-    public function recuperaNumero(): string
+    public function getCpfNumber(): string
     {
-        return $this->numero;
+        return $this->number;
     }
 }
